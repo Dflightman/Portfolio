@@ -5,7 +5,7 @@
 
 // ── CONFIG ──
 // Replace with your actual Render.com backend URL after deploying
-const BACKEND_URL = "https://YOUR-APP.onrender.com";
+const BACKEND_URL = "https://dan-portfolio-api.onrender.com";
 
 // ===========================
 //  NAV SCROLL + MOBILE TOGGLE
