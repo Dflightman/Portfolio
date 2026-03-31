@@ -1,328 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dan Joseph | BCA Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CIPHER.LAB — Cybersecurity Playground</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;700&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
-  <!-- ===== NAV ===== -->
-  <nav class="nav" id="nav">
-    <div class="nav-logo">DJ<span class="dot">.</span></div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#workflow">Workflow</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="nav-toggle" id="navToggle">☰</button>
+  <!-- GLITCH CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- SCANLINES OVERLAY -->
+  <div class="scanlines"></div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-brand">CIPHER<span>.LAB</span></div>
+    <div class="nav-links">
+      <a href="#password">PWD</a>
+      <a href="#generator">GEN</a>
+      <a href="#encrypt">ENC</a>
+      <a href="#hash">HASH</a>
+      <a href="#breach">BREACH</a>
+      <a href="#contact">SIGNAL</a>
+      <a href="admin.html" class="nav-admin">ADMIN ⬡</a>
+    </div>
   </nav>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="hero">
-    <div class="hero-grid-bg"></div>
-    <div class="hero-content">
-      <div class="hero-badge">BCA Student · Developer</div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-noise"></div>
+    <div class="hero-lines">
+      <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
+      <div class="h-line"></div><div class="h-line"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-tag">// CYBERSECURITY TOOLS v2.0</div>
       <h1 class="hero-title">
-        Dan<br />
-        <span class="hero-title-accent">Joseph</span>
+        <span class="title-stroke">CIPHER</span><br>
+        <span class="title-fill">LAB</span>
       </h1>
-      <p class="hero-subtitle">
-        Building the web, one commit at a time.<br />
-        Passionate about full-stack development & clean code.
-      </p>
-      <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      <p class="hero-desc">ENCRYPT · ANALYSE · PROTECT · BREACH-CHECK</p>
+      <div class="hero-stats">
+        <div class="hstat"><span id="statPasswords">0</span><small>PASSWORDS TESTED</small></div>
+        <div class="hstat"><span id="statEncrypted">0</span><small>STRINGS ENCRYPTED</small></div>
+        <div class="hstat"><span id="statHashes">0</span><small>HASHES GENERATED</small></div>
       </div>
+      <a href="#password" class="hero-btn">ENTER THE LAB →</a>
     </div>
     <div class="hero-terminal">
-      <div class="terminal-bar">
-        <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
-        <span class="terminal-title">bash — dan@portfolio</span>
-      </div>
-      <div class="terminal-body" id="terminalBody">
-        <p><span class="t-prompt">$</span> git init</p>
-        <p class="t-out">Initialized empty Git repository</p>
-        <p><span class="t-prompt">$</span> git add .</p>
-        <p><span class="t-prompt">$</span> git commit -m "🚀 first commit"</p>
-        <p class="t-out">[main] 1 file changed</p>
-        <p><span class="t-prompt">$</span> git push origin main</p>
-        <p class="t-out t-success">✓ Deployed to GitHub Pages!</p>
-        <p class="t-cursor">▋</p>
-      </div>
+      <div class="ht-line" style="--d:0s"><span class="ht-c">$</span> initializing cipher.lab...</div>
+      <div class="ht-line" style="--d:.3s"><span class="ht-c">$</span> loading encryption modules... <span class="ht-ok">OK</span></div>
+      <div class="ht-line" style="--d:.6s"><span class="ht-c">$</span> breach database connected... <span class="ht-ok">OK</span></div>
+      <div class="ht-line" style="--d:.9s"><span class="ht-c">$</span> hash engine ready... <span class="ht-ok">OK</span></div>
+      <div class="ht-line" style="--d:1.2s"><span class="ht-c">$</span> all systems operational <span class="ht-ok">■</span></div>
+      <div class="ht-cursor">_</div>
     </div>
   </section>
 
-  <!-- ===== ABOUT ===== -->
-  <section class="section" id="about">
-    <div class="container">
-      <div class="section-label">// 01 — ABOUT</div>
-      <div class="about-grid">
-        <div class="about-text">
-          <h2 class="section-title">Who Am I?</h2>
-          <p>
-            Hey! I'm <strong>Dan Joseph</strong>, a BCA student passionate about modern web development.
-            I love turning ideas into real, working products — from writing the first line of HTML to
-            deploying on the cloud.
-          </p>
-          <p>
-            I follow the modern <strong>Git → GitHub → CI/CD → Hosting</strong> workflow taught
-            by my HOD, ensuring every project is version-controlled, tested, and reliably deployed.
-          </p>
-          <div class="about-stats">
-            <div class="stat"><span class="stat-num">10+</span><span class="stat-label">Projects</span></div>
-            <div class="stat"><span class="stat-num">3+</span><span class="stat-label">Languages</span></div>
-            <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Passion</span></div>
+  <!-- ═══ TOOL 1: PASSWORD ANALYSER ═══ -->
+  <section class="tool-section" id="password">
+    <div class="tool-number">01</div>
+    <div class="tool-inner">
+      <div class="tool-header">
+        <h2>PASSWORD<br>ANALYSER</h2>
+        <p>Real-time entropy analysis. Know how strong you really are.</p>
+      </div>
+      <div class="tool-body">
+        <div class="pw-wrap">
+          <div class="pw-field-row">
+            <input type="password" id="pwInput" class="big-input" placeholder="TYPE YOUR PASSWORD_" autocomplete="new-password"/>
+            <button class="icon-btn" id="pwToggle">👁</button>
           </div>
-        </div>
-        <div class="about-card">
-          <div class="about-card-header">profile.json</div>
-          <pre class="about-json">{
-  "name": "Dan Joseph",
-  "role": "BCA Student",
-  "location": "India",
-  "interests": [
-    "Full Stack Dev",
-    "Open Source",
-    "Cloud Computing"
-  ],
-  "currently": "Building cool stuff",
-  "available": true
-}</pre>
+
+          <div class="pw-meter">
+            <div class="pm-track">
+              <div class="pm-fill" id="pmFill"></div>
+            </div>
+            <div class="pm-label" id="pmLabel">AWAITING INPUT</div>
+          </div>
+
+          <div class="pw-stats-grid">
+            <div class="pwstat"><div class="pwstat-val" id="pwEntropy">0</div><div class="pwstat-key">ENTROPY BITS</div></div>
+            <div class="pwstat"><div class="pwstat-val" id="pwLength">0</div><div class="pwstat-key">LENGTH</div></div>
+            <div class="pwstat"><div class="pwstat-val" id="pwCrack">∞</div><div class="pwstat-key">CRACK TIME</div></div>
+            <div class="pwstat"><div class="pwstat-val" id="pwScore">0/5</div><div class="pwstat-key">SCORE</div></div>
+          </div>
+
+          <div class="pw-checks-grid">
+            <div class="pwck" id="ckLen">✗ 8+ CHARACTERS</div>
+            <div class="pwck" id="ckUpper">✗ UPPERCASE</div>
+            <div class="pwck" id="ckLower">✗ LOWERCASE</div>
+            <div class="pwck" id="ckNum">✗ NUMBERS</div>
+            <div class="pwck" id="ckSpecial">✗ SYMBOLS</div>
+            <div class="pwck" id="ckLong">✗ 16+ CHARS (ELITE)</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== SKILLS ===== -->
-  <section class="section section-alt" id="skills">
-    <div class="container">
-      <div class="section-label">// 02 — SKILLS</div>
-      <h2 class="section-title">Tech Stack</h2>
-      <div class="skills-grid">
-        <div class="skill-card" data-level="90">
-          <div class="skill-icon">🌐</div>
-          <h3>HTML & CSS</h3>
-          <p>Semantic markup, Flexbox, Grid, responsive design</p>
-          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+  <!-- ═══ TOOL 2: PASSWORD GENERATOR ═══ -->
+  <section class="tool-section tool-alt" id="generator">
+    <div class="tool-number">02</div>
+    <div class="tool-inner">
+      <div class="tool-header">
+        <h2>PASSWORD<br>GENERATOR</h2>
+        <p>Generate cryptographically strong passwords instantly.</p>
+      </div>
+      <div class="tool-body">
+        <div class="gen-output" id="genOutput">CLICK GENERATE</div>
+        <div class="gen-controls">
+          <div class="gen-row">
+            <label>LENGTH: <span id="lenVal">16</span></label>
+            <input type="range" id="genLen" min="8" max="64" value="16"/>
+          </div>
+          <div class="gen-toggles">
+            <label class="toggle-label"><input type="checkbox" id="genUpper" checked/> UPPERCASE</label>
+            <label class="toggle-label"><input type="checkbox" id="genLower" checked/> LOWERCASE</label>
+            <label class="toggle-label"><input type="checkbox" id="genNums" checked/> NUMBERS</label>
+            <label class="toggle-label"><input type="checkbox" id="genSyms" checked/> SYMBOLS</label>
+          </div>
         </div>
-        <div class="skill-card" data-level="80">
-          <div class="skill-icon">⚡</div>
-          <h3>JavaScript</h3>
-          <p>ES6+, DOM manipulation, Fetch API, async/await</p>
-          <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+        <div class="gen-actions">
+          <button class="tool-btn" id="genBtn">⚡ GENERATE</button>
+          <button class="tool-btn tool-btn-outline" id="genCopy">⧉ COPY</button>
         </div>
-        <div class="skill-card" data-level="70">
-          <div class="skill-icon">🟢</div>
-          <h3>Node.js & Express</h3>
-          <p>REST APIs, middleware, routing, server-side logic</p>
-          <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+        <div class="gen-hint" id="genHint"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TOOL 3: ENCRYPTOR ═══ -->
+  <section class="tool-section" id="encrypt">
+    <div class="tool-number">03</div>
+    <div class="tool-inner">
+      <div class="tool-header">
+        <h2>TEXT<br>ENCRYPTOR</h2>
+        <p>Caesar cipher, ROT13, Base64, reverse — encode & decode anything.</p>
+      </div>
+      <div class="tool-body">
+        <div class="enc-tabs">
+          <button class="enc-tab active" data-cipher="caesar">CAESAR</button>
+          <button class="enc-tab" data-cipher="rot13">ROT13</button>
+          <button class="enc-tab" data-cipher="base64">BASE64</button>
+          <button class="enc-tab" data-cipher="reverse">REVERSE</button>
+          <button class="enc-tab" data-cipher="binary">BINARY</button>
         </div>
-        <div class="skill-card" data-level="65">
-          <div class="skill-icon">🐘</div>
-          <h3>PostgreSQL</h3>
-          <p>Relational databases, queries, schema design</p>
-          <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
-        </div>
-        <div class="skill-card" data-level="85">
-          <div class="skill-icon">🐙</div>
-          <h3>Git & GitHub</h3>
-          <p>Version control, branching, pull requests, CI/CD</p>
-          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-        </div>
-        <div class="skill-card" data-level="75">
-          <div class="skill-icon">☁️</div>
-          <h3>Cloud Hosting</h3>
-          <p>GitHub Pages, Render.com, environment variables</p>
-          <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+        <div class="enc-body">
+          <div class="enc-caesar-shift" id="caesarShiftRow">
+            SHIFT: <span id="shiftVal">3</span>
+            <input type="range" id="caesarShift" min="1" max="25" value="3"/>
+          </div>
+          <textarea class="big-textarea" id="encInput" placeholder="TYPE TEXT TO ENCRYPT_" rows="4"></textarea>
+          <div class="enc-btns">
+            <button class="tool-btn" id="encBtn">🔒 ENCRYPT</button>
+            <button class="tool-btn tool-btn-outline" id="decBtn">🔓 DECRYPT</button>
+          </div>
+          <div class="enc-output" id="encOutput">OUTPUT APPEARS HERE</div>
+          <button class="copy-small" id="encCopy">COPY OUTPUT</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== PROJECTS ===== -->
-  <section class="section" id="projects">
-    <div class="container">
-      <div class="section-label">// 03 — PROJECTS</div>
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="projects-grid">
-
-        <!-- PASSWORD STRENGTH CHECKER — Main Project -->
-        <div class="project-card project-featured">
-          <div class="project-badge">⭐ Featured</div>
-          <h3>🔐 Password Strength Checker</h3>
-          <p>A real-time password analyzer built with vanilla JS. Check your password strength below!</p>
-          <div class="password-checker">
-            <div class="pw-input-wrap">
-              <input type="password" id="pwInput" placeholder="Type a password to test..." autocomplete="new-password" />
-              <button class="pw-toggle" id="pwToggle" title="Show/Hide">👁</button>
-            </div>
-            <div class="pw-strength-bar">
-              <div class="pw-bar-fill" id="pwBar"></div>
-            </div>
-            <div class="pw-label" id="pwLabel">Start typing to check strength</div>
-            <div class="pw-checks" id="pwChecks">
-              <div class="pw-check" id="chkLen">✗ At least 8 characters</div>
-              <div class="pw-check" id="chkUpper">✗ Uppercase letter (A-Z)</div>
-              <div class="pw-check" id="chkLower">✗ Lowercase letter (a-z)</div>
-              <div class="pw-check" id="chkNum">✗ Number (0-9)</div>
-              <div class="pw-check" id="chkSpecial">✗ Special character (!@#$...)</div>
-            </div>
-            <div class="pw-score" id="pwScore">Score: 0 / 5</div>
+  <!-- ═══ TOOL 4: HASH GENERATOR ═══ -->
+  <section class="tool-section tool-alt" id="hash">
+    <div class="tool-number">04</div>
+    <div class="tool-inner">
+      <div class="tool-header">
+        <h2>HASH<br>GENERATOR</h2>
+        <p>Generate SHA-256, SHA-1 and MD5-style hashes using Web Crypto API.</p>
+      </div>
+      <div class="tool-body">
+        <textarea class="big-textarea" id="hashInput" placeholder="ENTER TEXT TO HASH_" rows="3"></textarea>
+        <button class="tool-btn" id="hashBtn">⚙ GENERATE HASHES</button>
+        <div class="hash-results" id="hashResults">
+          <div class="hash-row">
+            <div class="hash-algo">SHA-256</div>
+            <div class="hash-val" id="hSha256">—</div>
+            <button class="copy-tiny" data-target="hSha256">COPY</button>
           </div>
-          <div class="project-tags">
-            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          <div class="hash-row">
+            <div class="hash-algo">SHA-1</div>
+            <div class="hash-val" id="hSha1">—</div>
+            <button class="copy-tiny" data-target="hSha1">COPY</button>
           </div>
-          <div class="project-links">
-            <a href="https://github.com/Dflightman/password-checker" target="_blank" class="project-link">GitHub →</a>
-            <a href="#" class="project-link">Live Demo →</a>
+          <div class="hash-row">
+            <div class="hash-algo">SHA-512</div>
+            <div class="hash-val" id="hSha512">—</div>
+            <button class="copy-tiny" data-target="hSha512">COPY</button>
           </div>
         </div>
-
-        <div class="project-card">
-          <h3>📋 Contact Form API</h3>
-          <p>Full-stack contact form with Node.js backend, Express REST API, and PostgreSQL database for message storage.</p>
-          <div class="project-tags">
-            <span>Node.js</span><span>Express</span><span>PostgreSQL</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/Dflightman/contact-api" target="_blank" class="project-link">GitHub →</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <h3>⚙️ CI/CD Pipeline</h3>
-          <p>Automated GitHub Actions workflow — runs linting, testing, and deploys to GitHub Pages on every push.</p>
-          <div class="project-tags">
-            <span>GitHub Actions</span><span>YAML</span><span>DevOps</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/Dflightman/portfolio/actions" target="_blank" class="project-link">View Actions →</a>
-          </div>
-        </div>
-
+        <div class="hash-note">⚠ Hashes are ONE-WAY — cannot be reversed. Used for password storage.</div>
       </div>
     </div>
   </section>
 
-  <!-- ===== WORKFLOW ===== -->
-  <section class="section section-alt" id="workflow">
-    <div class="container">
-      <div class="section-label">// 04 — WORKFLOW</div>
-      <h2 class="section-title">My HOD's Modern Dev Workflow</h2>
-      <p class="workflow-intro">The complete pipeline from writing code to reaching users — exactly as taught!</p>
-      <div class="workflow-steps">
-        <div class="workflow-step">
-          <div class="wf-icon">💻</div>
-          <div class="wf-num">01</div>
-          <h3>Local Git Repo</h3>
-          <p>Write code in VS Code. Track every change with <code>git commit</code>.</p>
+  <!-- ═══ TOOL 5: BREACH CHECKER ═══ -->
+  <section class="tool-section" id="breach">
+    <div class="tool-number">05</div>
+    <div class="tool-inner">
+      <div class="tool-header">
+        <h2>PASSWORD<br>BREACH CHECK</h2>
+        <p>Check if your password pattern has been seen in known breaches. Uses k-anonymity — your full password is NEVER sent.</p>
+      </div>
+      <div class="tool-body">
+        <div class="breach-input-row">
+          <input type="password" id="breachInput" class="big-input" placeholder="CHECK A PASSWORD_"/>
+          <button class="tool-btn" id="breachBtn">🔍 CHECK</button>
         </div>
-        <div class="workflow-arrow">→</div>
-        <div class="workflow-step">
-          <div class="wf-icon">🐙</div>
-          <div class="wf-num">02</div>
-          <h3>GitHub</h3>
-          <p>Push to GitHub. Store, share, and collaborate on code.</p>
+        <div class="breach-result" id="breachResult">
+          <div class="breach-idle">
+            <div class="breach-icon">🛡</div>
+            <div>ENTER A PASSWORD TO CHECK AGAINST BREACH DATABASE</div>
+          </div>
         </div>
-        <div class="workflow-arrow">→</div>
-        <div class="workflow-step">
-          <div class="wf-icon">⚙️</div>
-          <div class="wf-num">03</div>
-          <h3>CI/CD Pipeline</h3>
-          <p>GitHub Actions auto-runs tests & linting on every push.</p>
-        </div>
-        <div class="workflow-arrow">→</div>
-        <div class="workflow-step">
-          <div class="wf-icon">☁️</div>
-          <div class="wf-num">04</div>
-          <h3>Hosting</h3>
-          <p>GitHub Pages (frontend) + Render.com (backend + DB).</p>
-        </div>
-        <div class="workflow-arrow">→</div>
-        <div class="workflow-step">
-          <div class="wf-icon">🌍</div>
-          <div class="wf-num">05</div>
-          <h3>Web Browser</h3>
-          <p>Live site, accessible to everyone on the internet!</p>
+        <div class="breach-disclaimer">
+          ⚠ Only first 5 chars of SHA-1 hash sent to HaveIBeenPwned API. Your password stays private.
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== CONTACT ===== -->
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="section-label">// 05 — CONTACT</div>
-      <h2 class="section-title">Get In Touch</h2>
-      <p class="contact-intro">Have a project idea or want to collaborate? Send me a message!</p>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <div class="contact-item">
-            <span class="ci-icon">📧</span>
-            <div>
-              <strong>Email</strong>
-              <p>dan@example.com</p>
+  <!-- ═══ CONTACT ═══ -->
+  <section class="tool-section tool-alt" id="contact">
+    <div class="tool-number">06</div>
+    <div class="tool-inner">
+      <div class="tool-header">
+        <h2>SEND<br>SIGNAL</h2>
+        <p>Drop a message. Goes straight to the backend database.</p>
+      </div>
+      <div class="tool-body">
+        <form id="contactForm" class="signal-form">
+          <div class="sf-row">
+            <div class="sf-group">
+              <label>CALLSIGN (NAME)</label>
+              <input type="text" id="cfName" class="big-input" placeholder="YOUR NAME_" required/>
+            </div>
+            <div class="sf-group">
+              <label>FREQUENCY (EMAIL)</label>
+              <input type="email" id="cfEmail" class="big-input" placeholder="YOUR EMAIL_" required/>
             </div>
           </div>
-          <div class="contact-item">
-            <span class="ci-icon">🐙</span>
-            <div>
-              <strong>GitHub</strong>
-              <p>github.com/YOUR_USERNAME</p>
-            </div>
+          <div class="sf-group">
+            <label>SUBJECT</label>
+            <input type="text" id="cfSubject" class="big-input" placeholder="SUBJECT_" required/>
           </div>
-          <div class="contact-item">
-            <span class="ci-icon">📍</span>
-            <div>
-              <strong>Location</strong>
-              <p>India</p>
-            </div>
+          <div class="sf-group">
+            <label>MESSAGE</label>
+            <textarea id="cfMessage" class="big-textarea" rows="4" placeholder="YOUR MESSAGE_" required></textarea>
           </div>
-        </div>
-
-        <form class="contact-form" id="contactForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="cfName">Name</label>
-              <input type="text" id="cfName" name="name" placeholder="Your name" required />
-            </div>
-            <div class="form-group">
-              <label for="cfEmail">Email</label>
-              <input type="email" id="cfEmail" name="email" placeholder="your@email.com" required />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="cfSubject">Subject</label>
-            <input type="text" id="cfSubject" name="subject" placeholder="Project idea..." required />
-          </div>
-          <div class="form-group">
-            <label for="cfMessage">Message</label>
-            <textarea id="cfMessage" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
-            Send Message 🚀
-          </button>
+          <button type="submit" class="tool-btn tool-btn-full" id="submitBtn">⚡ TRANSMIT MESSAGE</button>
           <div class="form-status" id="formStatus"></div>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <p>Built by <strong>Dan Joseph</strong> — BCA Student</p>
-        <p class="footer-stack">HTML · CSS · JS · Node.js · PostgreSQL · GitHub Actions</p>
-        <p class="footer-copy">© 2025 Dan Joseph. Deployed with ❤️ on GitHub Pages.</p>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="sf-top">
+      <div class="sf-brand">CIPHER<span>.LAB</span></div>
+      <div class="sf-links">
+        <a href="admin.html">ADMIN PANEL</a>
+        <a href="https://github.com/Dflightman/Portfolio" target="_blank">GITHUB</a>
       </div>
+    </div>
+    <div class="sf-bottom">
+      ALL TOOLS RUN CLIENT-SIDE · NO DATA STORED WITHOUT CONSENT · BUILT BY DAN JOSEPH
     </div>
   </footer>
 
