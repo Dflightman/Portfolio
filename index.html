@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dan Joseph | BCA Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">DJ<span class="dot">.</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#workflow">Workflow</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle">☰</button>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge">BCA Student · Developer</div>
+      <h1 class="hero-title">
+        Dan<br />
+        <span class="hero-title-accent">Joseph</span>
+      </h1>
+      <p class="hero-subtitle">
+        Building the web, one commit at a time.<br />
+        Passionate about full-stack development & clean code.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      </div>
+    </div>
+    <div class="hero-terminal">
+      <div class="terminal-bar">
+        <span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span>
+        <span class="terminal-title">bash — dan@portfolio</span>
+      </div>
+      <div class="terminal-body" id="terminalBody">
+        <p><span class="t-prompt">$</span> git init</p>
+        <p class="t-out">Initialized empty Git repository</p>
+        <p><span class="t-prompt">$</span> git add .</p>
+        <p><span class="t-prompt">$</span> git commit -m "🚀 first commit"</p>
+        <p class="t-out">[main] 1 file changed</p>
+        <p><span class="t-prompt">$</span> git push origin main</p>
+        <p class="t-out t-success">✓ Deployed to GitHub Pages!</p>
+        <p class="t-cursor">▋</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-label">// 01 — ABOUT</div>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 class="section-title">Who Am I?</h2>
+          <p>
+            Hey! I'm <strong>Dan Joseph</strong>, a BCA student passionate about modern web development.
+            I love turning ideas into real, working products — from writing the first line of HTML to
+            deploying on the cloud.
+          </p>
+          <p>
+            I follow the modern <strong>Git → GitHub → CI/CD → Hosting</strong> workflow taught
+            by my HOD, ensuring every project is version-controlled, tested, and reliably deployed.
+          </p>
+          <div class="about-stats">
+            <div class="stat"><span class="stat-num">10+</span><span class="stat-label">Projects</span></div>
+            <div class="stat"><span class="stat-num">3+</span><span class="stat-label">Languages</span></div>
+            <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Passion</span></div>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-header">profile.json</div>
+          <pre class="about-json">{
+  "name": "Dan Joseph",
+  "role": "BCA Student",
+  "location": "India",
+  "interests": [
+    "Full Stack Dev",
+    "Open Source",
+    "Cloud Computing"
+  ],
+  "currently": "Building cool stuff",
+  "available": true
+}</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <div class="section-label">// 02 — SKILLS</div>
+      <h2 class="section-title">Tech Stack</h2>
+      <div class="skills-grid">
+        <div class="skill-card" data-level="90">
+          <div class="skill-icon">🌐</div>
+          <h3>HTML & CSS</h3>
+          <p>Semantic markup, Flexbox, Grid, responsive design</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+        </div>
+        <div class="skill-card" data-level="80">
+          <div class="skill-icon">⚡</div>
+          <h3>JavaScript</h3>
+          <p>ES6+, DOM manipulation, Fetch API, async/await</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+        </div>
+        <div class="skill-card" data-level="70">
+          <div class="skill-icon">🟢</div>
+          <h3>Node.js & Express</h3>
+          <p>REST APIs, middleware, routing, server-side logic</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+        </div>
+        <div class="skill-card" data-level="65">
+          <div class="skill-icon">🐘</div>
+          <h3>PostgreSQL</h3>
+          <p>Relational databases, queries, schema design</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+        </div>
+        <div class="skill-card" data-level="85">
+          <div class="skill-icon">🐙</div>
+          <h3>Git & GitHub</h3>
+          <p>Version control, branching, pull requests, CI/CD</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+        </div>
+        <div class="skill-card" data-level="75">
+          <div class="skill-icon">☁️</div>
+          <h3>Cloud Hosting</h3>
+          <p>GitHub Pages, Render.com, environment variables</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-label">// 03 — PROJECTS</div>
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+
+        <!-- PASSWORD STRENGTH CHECKER — Main Project -->
+        <div class="project-card project-featured">
+          <div class="project-badge">⭐ Featured</div>
+          <h3>🔐 Password Strength Checker</h3>
+          <p>A real-time password analyzer built with vanilla JS. Check your password strength below!</p>
+          <div class="password-checker">
+            <div class="pw-input-wrap">
+              <input type="password" id="pwInput" placeholder="Type a password to test..." autocomplete="new-password" />
+              <button class="pw-toggle" id="pwToggle" title="Show/Hide">👁</button>
+            </div>
+            <div class="pw-strength-bar">
+              <div class="pw-bar-fill" id="pwBar"></div>
+            </div>
+            <div class="pw-label" id="pwLabel">Start typing to check strength</div>
+            <div class="pw-checks" id="pwChecks">
+              <div class="pw-check" id="chkLen">✗ At least 8 characters</div>
+              <div class="pw-check" id="chkUpper">✗ Uppercase letter (A-Z)</div>
+              <div class="pw-check" id="chkLower">✗ Lowercase letter (a-z)</div>
+              <div class="pw-check" id="chkNum">✗ Number (0-9)</div>
+              <div class="pw-check" id="chkSpecial">✗ Special character (!@#$...)</div>
+            </div>
+            <div class="pw-score" id="pwScore">Score: 0 / 5</div>
+          </div>
+          <div class="project-tags">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/YOUR_USERNAME/password-checker" target="_blank" class="project-link">GitHub →</a>
+            <a href="#" class="project-link">Live Demo →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>📋 Contact Form API</h3>
+          <p>Full-stack contact form with Node.js backend, Express REST API, and PostgreSQL database for message storage.</p>
+          <div class="project-tags">
+            <span>Node.js</span><span>Express</span><span>PostgreSQL</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/YOUR_USERNAME/contact-api" target="_blank" class="project-link">GitHub →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>⚙️ CI/CD Pipeline</h3>
+          <p>Automated GitHub Actions workflow — runs linting, testing, and deploys to GitHub Pages on every push.</p>
+          <div class="project-tags">
+            <span>GitHub Actions</span><span>YAML</span><span>DevOps</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/YOUR_USERNAME/portfolio/actions" target="_blank" class="project-link">View Actions →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WORKFLOW ===== -->
+  <section class="section section-alt" id="workflow">
+    <div class="container">
+      <div class="section-label">// 04 — WORKFLOW</div>
+      <h2 class="section-title">My HOD's Modern Dev Workflow</h2>
+      <p class="workflow-intro">The complete pipeline from writing code to reaching users — exactly as taught!</p>
+      <div class="workflow-steps">
+        <div class="workflow-step">
+          <div class="wf-icon">💻</div>
+          <div class="wf-num">01</div>
+          <h3>Local Git Repo</h3>
+          <p>Write code in VS Code. Track every change with <code>git commit</code>.</p>
+        </div>
+        <div class="workflow-arrow">→</div>
+        <div class="workflow-step">
+          <div class="wf-icon">🐙</div>
+          <div class="wf-num">02</div>
+          <h3>GitHub</h3>
+          <p>Push to GitHub. Store, share, and collaborate on code.</p>
+        </div>
+        <div class="workflow-arrow">→</div>
+        <div class="workflow-step">
+          <div class="wf-icon">⚙️</div>
+          <div class="wf-num">03</div>
+          <h3>CI/CD Pipeline</h3>
+          <p>GitHub Actions auto-runs tests & linting on every push.</p>
+        </div>
+        <div class="workflow-arrow">→</div>
+        <div class="workflow-step">
+          <div class="wf-icon">☁️</div>
+          <div class="wf-num">04</div>
+          <h3>Hosting</h3>
+          <p>GitHub Pages (frontend) + Render.com (backend + DB).</p>
+        </div>
+        <div class="workflow-arrow">→</div>
+        <div class="workflow-step">
+          <div class="wf-icon">🌍</div>
+          <div class="wf-num">05</div>
+          <h3>Web Browser</h3>
+          <p>Live site, accessible to everyone on the internet!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-label">// 05 — CONTACT</div>
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="contact-intro">Have a project idea or want to collaborate? Send me a message!</p>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="ci-icon">📧</span>
+            <div>
+              <strong>Email</strong>
+              <p>dan@example.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">🐙</span>
+            <div>
+              <strong>GitHub</strong>
+              <p>github.com/YOUR_USERNAME</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">📍</span>
+            <div>
+              <strong>Location</strong>
+              <p>India</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cfName">Name</label>
+              <input type="text" id="cfName" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="cfEmail">Email</label>
+              <input type="email" id="cfEmail" name="email" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cfSubject">Subject</label>
+            <input type="text" id="cfSubject" name="subject" placeholder="Project idea..." required />
+          </div>
+          <div class="form-group">
+            <label for="cfMessage">Message</label>
+            <textarea id="cfMessage" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+            Send Message 🚀
+          </button>
+          <div class="form-status" id="formStatus"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>Built by <strong>Dan Joseph</strong> — BCA Student</p>
+        <p class="footer-stack">HTML · CSS · JS · Node.js · PostgreSQL · GitHub Actions</p>
+        <p class="footer-copy">© 2025 Dan Joseph. Deployed with ❤️ on GitHub Pages.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

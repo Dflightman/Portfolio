@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Setup Guide — Dan Joseph Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:#0a0e17; --surface:#141c2b; --surface2:#1a2540; --border:#1f2e48;
+      --text:#cdd9f0; --dim:#637a99; --accent:#00e5ff; --green:#39ff14;
+      --yellow:#f5c518; --red:#ff3e6c; --font-mono:'Space Mono',monospace;
+      --font:'Syne',sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7;}
+    a{color:var(--accent)}
+    .wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem 4rem}
+    h1{font-size:2.4rem;font-weight:800;color:#fff;margin-bottom:.5rem}
+    .subtitle{color:var(--dim);margin-bottom:3rem;font-size:1.05rem}
+    h2{font-size:1.5rem;color:#fff;font-weight:800;margin:2.5rem 0 .8rem;
+       border-left:3px solid var(--accent);padding-left:1rem}
+    h3{font-size:1rem;color:var(--accent);font-weight:700;margin:1.5rem 0 .5rem;
+       font-family:var(--font-mono)}
+    p{color:var(--dim);margin-bottom:.8rem}
+    strong{color:#fff}
+    ul,ol{padding-left:1.5rem;color:var(--dim);margin-bottom:1rem}
+    li{margin-bottom:.4rem}
+    .step{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+          padding:1.5rem;margin-bottom:1rem}
+    .step-num{font-family:var(--font-mono);font-size:.7rem;color:var(--accent);
+              letter-spacing:.15em;margin-bottom:.5rem}
+    code,.cmd{font-family:var(--font-mono);font-size:.85rem;background:var(--surface2);
+              padding:2px 7px;border-radius:4px;color:#fff;white-space:nowrap}
+    .cmd-block{background:#000;border:1px solid var(--border);border-radius:8px;
+               padding:1rem 1.2rem;margin:.6rem 0;font-family:var(--font-mono);
+               font-size:.82rem;line-height:2.2;overflow-x:auto}
+    .cmd-block .p{color:var(--green)}
+    .cmd-block .c{color:var(--dim);font-style:italic}
+    .cmd-block .h{color:var(--yellow)}
+    .cmd-block .e{color:var(--accent)}
+    .alert{border-radius:8px;padding:1rem 1.2rem;margin:1rem 0;border-left:3px solid}
+    .alert-info{background:rgba(0,229,255,.07);border-color:var(--accent);color:var(--text)}
+    .alert-warn{background:rgba(245,197,24,.07);border-color:var(--yellow);color:var(--text)}
+    .alert-ok  {background:rgba(57,255,20,.07);border-color:var(--green);color:var(--text)}
+    .phase{display:inline-block;font-family:var(--font-mono);font-size:.7rem;
+           background:rgba(0,229,255,.12);color:var(--accent);border:1px solid rgba(0,229,255,.3);
+           padding:3px 12px;border-radius:100px;margin-bottom:.8rem;letter-spacing:.1em}
+    .file-tree{background:#000;border:1px solid var(--border);border-radius:8px;
+               padding:1rem 1.2rem;font-family:var(--font-mono);font-size:.82rem;
+               color:var(--text);line-height:2}
+    .file-tree .folder{color:var(--yellow)}
+    .file-tree .file{color:var(--text)}
+    .file-tree .note{color:var(--dim)}
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+         padding:1.5rem;margin-bottom:3rem}
+    .toc h3{color:#fff;margin:0 0 1rem;font-family:var(--font)}
+    .toc ol{color:var(--dim);line-height:2.2}
+    .toc a{color:var(--dim);text-decoration:none}
+    .toc a:hover{color:var(--accent)}
+    hr{border:none;border-top:1px solid var(--border);margin:3rem 0}
+    .badge{display:inline-block;padding:2px 8px;border-radius:4px;font-family:var(--font-mono);
+           font-size:.7rem;margin-right:.3rem}
+    .b-free{background:rgba(57,255,20,.15);color:var(--green);border:1px solid rgba(57,255,20,.3)}
+    .b-req {background:rgba(255,62,108,.15);color:var(--red);border:1px solid rgba(255,62,108,.3)}
+    .workflow{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;
+              background:var(--surface2);border-radius:8px;padding:1rem;margin:1rem 0}
+    .wf-box{background:var(--surface);border:1px solid var(--border);border-radius:6px;
+            padding:.4rem .8rem;font-family:var(--font-mono);font-size:.75rem;color:#fff;
+            text-align:center}
+    .wf-arr{color:var(--accent);font-size:1.2rem}
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>🚀 Complete Setup Guide</h1>
+  <p class="subtitle">Dan Joseph — BCA Portfolio Project · Modern Web Dev Workflow</p>
+
+  <div class="workflow">
+    <div class="wf-box">💻 Local Git</div>
+    <div class="wf-arr">→</div>
+    <div class="wf-box">🐙 GitHub</div>
+    <div class="wf-arr">→</div>
+    <div class="wf-box">⚙️ CI/CD</div>
+    <div class="wf-arr">→</div>
+    <div class="wf-box">☁️ Hosting</div>
+    <div class="wf-arr">→</div>
+    <div class="wf-box">🌍 Browser</div>
+  </div>
+
+  <div class="toc">
+    <h3>📋 Table of Contents</h3>
+    <ol>
+      <li><a href="#phase1">Phase 1 — Project Setup & File Structure</a></li>
+      <li><a href="#phase2">Phase 2 — Git Installation & Setup</a></li>
+      <li><a href="#phase3">Phase 3 — Push to GitHub</a></li>
+      <li><a href="#phase4">Phase 4 — Enable GitHub Pages (Frontend Hosting)</a></li>
+      <li><a href="#phase5">Phase 5 — CI/CD with GitHub Actions</a></li>
+      <li><a href="#phase6">Phase 6 — Backend Setup (Node.js + Express)</a></li>
+      <li><a href="#phase7">Phase 7 — Backend Hosting on Render.com</a></li>
+      <li><a href="#phase8">Phase 8 — Connect Frontend to Backend</a></li>
+      <li><a href="#phase9">Phase 9 — Test Everything End-to-End</a></li>
+    </ol>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <hr id="phase1"/>
+  <div class="phase">PHASE 1</div>
+  <h2>📁 Project Setup &amp; File Structure</h2>
+
+  <h3>Step 1.1 — Create Your Project Folder</h3>
+  <p>Open <strong>VS Code</strong>. Press <code>Ctrl + `</code> to open the terminal. Type:</p>
+  <div class="cmd-block">
+    <span class="p">$</span> cd Desktop<br>
+    <span class="p">$</span> mkdir portfolio<br>
+    <span class="p">$</span> cd portfolio<br>
+    <span class="p">$</span> code .  <span class="c"># Opens this folder in VS Code</span>
+  </div>
+
+  <h3>Step 1.2 — Your Final File Structure</h3>
+  <p>Your folder should look like this when everything is done:</p>
+  <div class="file-tree">
+    <span class="folder">📁 portfolio/</span> (your project root)<br>
+    &nbsp;&nbsp;<span class="file">├── index.html</span>   <span class="note">← the website</span><br>
+    &nbsp;&nbsp;<span class="file">├── styles.css</span>   <span class="note">← all the styling</span><br>
+    &nbsp;&nbsp;<span class="file">├── script.js</span>    <span class="note">← password checker + form JS</span><br>
+    &nbsp;&nbsp;<span class="file">├── .gitignore</span>   <span class="note">← tells Git what to ignore</span><br>
+    &nbsp;&nbsp;<span class="file">├── README.md</span>    <span class="note">← project description (create this)</span><br>
+    &nbsp;&nbsp;<span class="folder">├── 📁 .github/</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="folder">└── 📁 workflows/</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="file">└── deploy.yml</span> <span class="note">← CI/CD pipeline</span><br>
+    &nbsp;&nbsp;<span class="folder">└── 📁 backend/</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">├── server.js</span>    <span class="note">← Node.js + Express server</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;└── package.json <span class="note">← backend dependencies</span>
+  </div>
+
+  <h3>Step 1.3 — Copy the Provided Files</h3>
+  <p>Copy all the files provided (index.html, styles.css, script.js, .gitignore, backend/server.js, backend/package.json, and .github/workflows/deploy.yml) into the correct locations in your portfolio folder.</p>
+
+  <div class="alert alert-info">
+    💡 <strong>Tip:</strong> In VS Code, you can drag and drop files into the Explorer panel on the left, or use File → New File to create them.
+  </div>
+
+
+  <!-- ══════════════════════════════════════ -->
+  <hr id="phase2"/>
+  <div class="phase">PHASE 2</div>
+  <h2>🔧 Git Installation &amp; Setup</h2>
+
+  <h3>Step 2.1 — Download &amp; Install Git</h3>
+  <ol>
+    <li>Go to <a href="https://git-scm.com/download/win" target="_blank">https://git-scm.com/download/win</a></li>
+    <li>Download the installer for Windows (64-bit)</li>
+    <li>Run the installer — click <strong>Next</strong> on every screen (default settings are fine)</li>
+    <li>Click <strong>Finish</strong></li>
+  </ol>
+
+  <h3>Step 2.2 — Verify Git is Installed</h3>
+  <p>Open a new terminal in VS Code and type:</p>
+  <div class="cmd-block">
+    <span class="p">$</span> git --version<br>
+    <span class="c">  git version 2.x.x  ← you should see something like this</span>
+  </div>
+
+  <h3>Step 2.3 — Configure Your Git Identity</h3>
+  <p>Tell Git who you are. Replace with your own name and email:</p>
+  <div class="cmd-block">
+    <span class="p">$</span> git config --global user.name "Dan Joseph"<br>
+    <span class="p">$</span> git config --global user.email "your.email@gmail.com"<br>
+    <span class="p">$</span> git config --global init.defaultBranch main<br>
+    <br>
+    <span class="c"># Confirm your settings:</span><br>
+    <span class="p">$</span> git config --list
+  </div>
+
+  <h3>Step 2.4 — Initialize Git in Your Project</h3>
+  <p>Make sure you are inside your portfolio folder, then run:</p>
+  <div class="cmd-block">
+    <span class="p">$</span> git init<br>
+    <span class="c">  Initialized empty Git repository in .../portfolio/.git/</span>
+  </div>
+
+  <h3>Step 2.5 — Your First Commit</h3>
+  <div class="cmd-block">
+    <span class="p">$</span> git add .           <span class="c"># Stage ALL files</span><br>
+    <span class="p">$</span> git status           <span class="c"># See what was staged</span><br>
+    <span class="p">$</span> git commit -m "🚀 Initial commit — portfolio + password checker"
+  </div>
+
+  <div class="alert alert-ok">
+    ✓ You now have a local Git repository with your first commit saved!
+  </div>
+
+
+  <!-- ══════════════════════════════════════ -->
+  <hr id="phase3"/>
+  <div class="phase">PHASE 3</div>
+  <h2>🐙 Push to GitHub</h2>
+
+  <h3>Step 3.1 — Create a GitHub Account</h3>
+  <ol>
+    <li>Go to <a href="https://github.com" target="_blank">https://github.com</a> and sign up (it's free!)</li>
+    <li>Verify your email address</li>
+    <li>Remember your username — you'll use it everywhere</li>
+  </ol>
+
+  <h3>Step 3.2 — Create a New Repository</h3>
+  <ol>
+    <li>Click the <strong>+</strong> button → <strong>New repository</strong></li>
+    <li>Repository name: <code>portfolio</code></li>
+    <li>Description: <em>BCA Portfolio with Password Strength Checker</em></li>
+    <li>Set it to <strong>Public</strong> (required for free GitHub Pages)</li>
+    <li><strong>DO NOT</strong> check "Add a README" or "Add .gitignore" — we already have those</li>
+    <li>Click <strong>Create repository</strong></li>
+  </ol>
+
+  <h3>Step 3.3 — Connect Local Git to GitHub &amp; Push</h3>
+  <p>GitHub will show you commands. Use these (replace YOUR_USERNAME):</p>
+  <div class="cmd-block">
+    <span class="c"># Connect your local repo to GitHub:</span><br>
+    <span class="p">$</span> git remote add origin https://github.com/YOUR_USERNAME/portfolio.git<br>
+    <br>
+    <span class="c"># Push your code to GitHub:</span><br>
+    <span class="p">$</span> git push -u origin main<br>
+    <br>
+    <span class="c"># GitHub will ask for your username and password.</span><br>
+    <span class="c"># For password: use a Personal Access Token (see step 3.4)</span>
+  </div>
+
+  <h3>Step 3.4 — Create a GitHub Personal Access Token</h3>
+  <p>GitHub no longer accepts passwords for pushing. Create a token instead:</p>
+  <ol>
+    <li>Go to GitHub → click your profile picture → <strong>Settings</strong></li>
+    <li>Scroll down to <strong>Developer settings</strong> (bottom of left sidebar)</li>
+    <li>Click <strong>Personal access tokens</strong> → <strong>Tokens (classic)</strong></li>
+    <li>Click <strong>Generate new token (classic)</strong></li>
+    <li>Note: <em>VS Code push</em>, Expiration: <em>90 days</em></li>
+    <li>Check the box: <strong>repo</strong> (gives full repo access)</li>
+    <li>Click <strong>Generate token</strong></li>
+    <li>⚠️ <strong>COPY THE TOKEN NOW</strong> — you won't see it again!</li>
+    <li>Use this token as your "password" when Git asks</li>
+  </ol>
+
+  <div class="alert alert-warn">
+    ⚠️ Save your token in Notepad temporarily. Never share it with anyone!
+  </div>
+
+  <h3>Step 3.5 — Verify Your Code is on GitHub</h3>
+  <p>Visit <code>https://github.com/YOUR_USERNAME/portfolio</code> — you should see all your files there!</p>
+
+
+  <!-- ══════════════════════════════════════ -->
+  <hr id="phase4"/>
+  <div class="phase">PHASE 4</div>
+  <h2>🌐 GitHub Pages — Free Frontend Hosting</h2>
+  <p><span class="badge b-free">FREE</span> No credit card needed!</p>
+
+  <h3>Step 4.1 — Enable GitHub Pages</h3>
+  <ol>
+    <li>Go to your repository on GitHub</li>
+    <li>Click <strong>Settings</strong> tab (top menu)</li>
+    <li>In the left sidebar, click <strong>Pages</strong></li>
+    <li>Under <strong>Source</strong>, select: <strong>GitHub Actions</strong></li>
+    <li>Click <strong>Save</strong></li>
+  </ol>
+
+  <h3>Step 4.2 — Your Live URL</h3>
+  <p>After your CI/CD pipeline runs (step 5), your site will be live at:</p>
+  <div class="cmd-block">
+    <span class="e">https://YOUR_USERNAME.github.io/portfolio</span>
+  </div>
+
+  <div class="alert alert-info">
+    💡 It may take 2-3 minutes after the first deploy for the URL to become active.
+  </div>
+
+
+  <!-- ══════════════════════════════════════ -->
+  <hr id="phase5"/>
+  <div class="phase">PHASE 5</div>
+  <h2>⚙️ CI/CD with GitHub Actions</h2>
+  <p>The <code>.github/workflows/deploy.yml</code> file is already set up for you! Here's what it does:</p>
+  <ul>
+    <li>Runs automatically every time you <code>git push</code> to main</li>
+    <li><strong>Job 1 (Test)</strong>: Checks all files exist, validates Node.js syntax</li>
+    <li><strong>Job 2 (Deploy)</strong>: Only runs if tests pass → deploys to GitHub Pages</li>
+  </ul>
+
+  <h3>Step 5.1 — Trigger the Pipeline</h3>
+  <p>Make any small change (e.g., add a space to README.md) and push:</p>
+  <div class="cmd-block">
+    <span class="p">$</span> git add .<br>
+    <span class="p">$</span> git commit -m "⚙️ trigger CI/CD pipeline"<br>
+    <span class="p">$</span> git push
+  </div>
+
+  <h3>Step 5.2 — Watch Your Pipeline Run</h3>
+  <ol>
+    <li>Go to your GitHub repository</li>
+    <li>Click the <strong>Actions</strong> tab</li>
+    <li>You'll see your workflow running — green ✓ means success!</li>
+    <li>Click on the workflow to see detailed logs</li>
+  </ol>
+
+  <div class="alert alert-ok">
+    ✓ Every <code>git push</code> now automatically tests and deploys your site!
+  </div>
+
+  <h3>Step 5.3 — The Workflow Explained</h3>
+  <div class="cmd-block">
+    <span class="h">on: push → main</span>      <span class="c"># Triggered by: git push</span><br>
+    <span class="h">jobs:</span><br>
+    &nbsp;&nbsp;<span class="e">test:</span>               <span class="c"># Job 1: run checks</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="c">- checkout code</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="c">- install dependencies</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="c">- verify files exist</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="c">- check JS syntax</span><br>
+    &nbsp;&nbsp;<span class="e">deploy:</span>             <span class="c"># Job 2: only runs if test passes</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="c">- needs: test</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="c">- deploy to GitHub Pages</span>
+  </div>
+
+
+  <!-- ══════════════════════════════════════ -->
+  <hr id="phase6"/>
+  <div class="phase">PHASE 6</div>
+  <h2>🟢 Backend Setup — Node.js + Express</h2>
+
+  <h3>Step 6.1 — Install Node.js</h3>
+  <ol>
+    <li>Go to <a href="https://nodejs.org" target="_blank">https://nodejs.org</a></li>
+    <li>Download the <strong>LTS version</strong> (Long Term Support)</li>
+    <li>Run the installer with default settings</li>
+    <li>Verify installation:</li>
+  </ol>
+  <div class="cmd-block">
+    <span class="p">$</span> node --version<br>
+    <span class="c">  v20.x.x  ← should see this</span><br>
+    <span class="p">$</span> npm --version<br>
+    <span class="c">  10.x.x   ← should see this</span>
+  </div>
+
+  <h3>Step 6.2 — Install Backend Dependencies</h3>
+  <div class="cmd-block">
+    <span class="c"># Navigate to backend folder:</span><br>
+    <span class="p">$</span> cd backend<br>
+    <br>
+    <span class="c"># Install all required packages (express, pg, cors, nodemon):</span><br>
+    <span class="p">$</span> npm install<br>
+    <br>
+    <span class="c"># You'll see a node_modules folder created — that's normal!</span>
+  </div>
+
+  <h3>Step 6.3 — Test the Backend Locally</h3>
+  <div class="cmd-block">
+    <span class="c"># Still in backend folder:</span><br>
+    <span class="p">$</span> node server.js<br>
+    <br>
+    <span class="c">  ╔═══════════════════════════════════════╗</span><br>
+    <span class="c">  ║   Dan Joseph Portfolio Backend        ║</span><br>
+    <span class="c">  ║   Running on port 3000               ║</span><br>
+    <span class="c">  ╚═══════════════════════════════════════╝</span>
+  </div>
+
+  <div class="alert alert-warn">
+    ⚠️ You'll see a database connection error — that's OK! We haven't set up PostgreSQL yet. The server still runs.
+  </div>
+
+  <p>Visit <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> in your browser — you should see a JSON response!</p>
+
+  <h3>Step 6.4 — Stop the Server</h3>
+  <div class="cmd-block">
+    Press <span class="h">Ctrl + C</span> in the terminal to stop the server
+  </div>
+
+
+  <!-- ══════════════════════════════════════ -->
+  <hr id="phase7"/>
+  <div class="phase">PHASE 7</div>
+  <h2>☁️ Backend Hosting on Render.com</h2>
+  <p><span class="badge b-free">FREE TIER</span> No credit card needed for the basics!</p>
+
+  <h3>Step 7.1 — Create a Render Account</h3>
+  <ol>
+    <li>Go to <a href="https://render.com" target="_blank">https://render.com</a></li>
+    <li>Click <strong>Get Started for Free</strong></li>
+    <li>Sign up with your GitHub account (easiest option)</li>
+  </ol>
+
+  <h3>Step 7.2 — Create a PostgreSQL Database on Render</h3>
+  <ol>
+    <li>On Render dashboard, click <strong>New +</strong></li>
+    <li>Select <strong>PostgreSQL</strong></li>
+    <li>Name: <code>portfolio-db</code></li>
+    <li>Region: <em>Singapore</em> (closest to India)</li>
+    <li>Plan: <strong>Free</strong></li>
+    <li>Click <strong>Create Database</strong></li>
+    <li>Wait 1-2 minutes for it to provision</li>
+    <li>Scroll down to <strong>Connections</strong> section</li>
+    <li>Copy the <strong>Internal Database URL</strong> — it looks like:<br>
+        <code>postgresql://user:password@host/dbname</code></li>
+  </ol>
+
+  <h3>Step 7.3 — Deploy the Node.js Backend</h3>
+  <ol>
+    <li>On Render dashboard, click <strong>New +</strong> → <strong>Web Service</strong></li>
+    <li>Connect your GitHub repository: select <code>portfolio</code></li>
+    <li>Configure:
+      <ul>
+        <li><strong>Name</strong>: <code>dan-portfolio-api</code></li>
+        <li><strong>Region</strong>: Singapore</li>
+        <li><strong>Branch</strong>: main</li>
+        <li><strong>Root Directory</strong>: <code>backend</code></li>
+        <li><strong>Build Command</strong>: <code>npm install</code></li>
+        <li><strong>Start Command</strong>: <code>node server.js</code></li>
+        <li><strong>Plan</strong>: Free</li>
+      </ul>
+    </li>
+    <li>Click <strong>Advanced</strong> → <strong>Add Environment Variable</strong>:
+      <ul>
+        <li>Key: <code>DATABASE_URL</code></li>
+        <li>Value: <em>paste the Internal Database URL from step 7.2</em></li>
+      </ul>
+    </li>
+    <li>Also add:
+      <ul>
+        <li>Key: <code>NODE_ENV</code></li>
+        <li>Value: <code>production</code></li>
+      </ul>
+    </li>
+    <li>Click <strong>Create Web Service</strong></li>
+    <li>Wait 3-5 minutes for deployment</li>
+  </ol>
+
+  <h3>Step 7.4 — Get Your Backend URL</h3>
+  <p>After deployment, Render gives you a URL like:</p>
+  <div class="cmd-block">
+    <span class="e">https://dan-portfolio-api.onrender.com</span>
+  </div>
+  <p>Visit this URL in your browser — you should see the JSON status response!</p>
+
+  <div class="alert alert-warn">
+    ⚠️ <strong>Free tier note:</strong> Render's free tier spins down after 15 minutes of inactivity. The first request after that takes 30-60 seconds to wake up. This is normal!
+  </div>
+
+
+  <!-- ══════════════════════════════════════ -->
+  <hr id="phase8"/>
+  <div class="phase">PHASE 8</div>
+  <h2>🔗 Connect Frontend to Backend</h2>
+
+  <h3>Step 8.1 — Update script.js with Your Backend URL</h3>
+  <p>Open <code>script.js</code> and find line 7. Replace with your actual Render URL:</p>
+  <div class="cmd-block">
+    <span class="c">// BEFORE:</span><br>
+    <span class="h">const BACKEND_URL = "https://YOUR-APP.onrender.com";</span><br>
+    <br>
+    <span class="c">// AFTER (use YOUR actual Render URL):</span><br>
+    <span class="e">const BACKEND_URL = "https://dan-portfolio-api.onrender.com";</span>
+  </div>
+
+  <h3>Step 8.2 — Update CORS in server.js</h3>
+  <p>Open <code>backend/server.js</code> and update the CORS origin with your actual GitHub username:</p>
+  <div class="cmd-block">
+    <span class="c">// BEFORE:</span><br>
+    <span class="h">"https://YOUR_USERNAME.github.io",</span><br>
+    <br>
+    <span class="c">// AFTER:</span><br>
+    <span class="e">"https://danjoseph.github.io",  ← use your actual username</span>
+  </div>
+
+  <h3>Step 8.3 — Update Project Links in index.html</h3>
+  <p>Search for <code>YOUR_USERNAME</code> in <code>index.html</code> and replace with your GitHub username.</p>
+
+  <h3>Step 8.4 — Commit &amp; Push All Changes</h3>
+  <div class="cmd-block">
+    <span class="c"># Go back to the root portfolio folder:</span><br>
+    <span class="p">$</span> cd ..   <span class="c"># if you were in backend/</span><br>
+    <br>
+    <span class="p">$</span> git add .<br>
+    <span class="p">$</span> git commit -m "🔗 connect frontend to Render backend"<br>
+    <span class="p">$</span> git push<br>
+    <br>
+    <span class="c"># GitHub Actions will automatically deploy the update!</span>
+  </div>
+
+
+  <!-- ══════════════════════════════════════ -->
+  <hr id="phase9"/>
+  <div class="phase">PHASE 9</div>
+  <h2>✅ Test Everything End-to-End</h2>
+
+  <h3>Step 9.1 — Test the Password Checker</h3>
+  <ol>
+    <li>Visit your GitHub Pages URL</li>
+    <li>Scroll to the Projects section</li>
+    <li>Type a password in the input field</li>
+    <li>Watch the strength bar change in real time!</li>
+    <li>Try: <code>hello</code> (weak) vs <code>H3ll0@World!</code> (very strong)</li>
+  </ol>
+
+  <h3>Step 9.2 — Test the Contact Form</h3>
+  <ol>
+    <li>Fill in the contact form on your portfolio site</li>
+    <li>Click Send — you should see "✓ Message sent!"</li>
+    <li>Check the database by visiting: <code>https://YOUR-APP.onrender.com/api/messages</code></li>
+    <li>You should see your message in the JSON response!</li>
+  </ol>
+
+  <h3>Step 9.3 — Check GitHub Actions</h3>
+  <ol>
+    <li>Go to your repository → Actions tab</li>
+    <li>All workflow runs should show green checkmarks ✓</li>
+  </ol>
+
+  <div class="alert alert-ok">
+    🎉 <strong>Congratulations Dan!</strong> You've completed the full Modern Web Development Workflow:<br>
+    Local Git → GitHub → CI/CD (GitHub Actions) → Hosting (GitHub Pages + Render.com) → Browser!
+  </div>
+
+  <hr/>
+
+  <h2>🔄 Your Daily Git Workflow (After Setup)</h2>
+  <p>Every time you make changes to your code, follow these steps:</p>
+  <div class="cmd-block">
+    <span class="c"># 1. Make your code changes in VS Code</span><br>
+    <span class="c"># 2. Save files (Ctrl+S)</span><br>
+    <span class="c"># 3. Stage your changes:</span><br>
+    <span class="p">$</span> git add .<br>
+    <span class="c"># 4. Commit with a message describing what you changed:</span><br>
+    <span class="p">$</span> git commit -m "✨ add new feature / fix bug description"<br>
+    <span class="c"># 5. Push to GitHub (triggers CI/CD automatically!):</span><br>
+    <span class="p">$</span> git push<br>
+    <span class="c"># 6. Watch GitHub Actions deploy your site automatically ✓</span>
+  </div>
+
+  <h2>🆘 Troubleshooting Common Issues</h2>
+
+  <div class="step">
+    <div class="step-num">ISSUE 01</div>
+    <strong>❌ "git is not recognized as a command"</strong>
+    <p>Git wasn't installed correctly. Re-download from git-scm.com, run installer, then <strong>restart VS Code completely</strong>.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-num">ISSUE 02</div>
+    <strong>❌ GitHub push asks for username/password repeatedly</strong>
+    <p>Use a Personal Access Token as your password (see Step 3.4). Or run: <code>git config --global credential.helper store</code> to save credentials.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-num">ISSUE 03</div>
+    <strong>❌ GitHub Actions failing (red X)</strong>
+    <p>Click on the failed job → read the error message. Most common fix: make sure all file names match exactly (index.html not Index.HTML).</p>
+  </div>
+
+  <div class="step">
+    <div class="step-num">ISSUE 04</div>
+    <strong>❌ Contact form shows "Backend not connected"</strong>
+    <p>Check: (1) BACKEND_URL in script.js is your correct Render URL, (2) Your Render service is running (not sleeping — send it a request first), (3) CORS origin in server.js matches your GitHub Pages URL.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-num">ISSUE 05</div>
+    <strong>❌ Render backend "Database connection error"</strong>
+    <p>Go to Render dashboard → your web service → Environment → check that DATABASE_URL is set correctly. Copy the Internal URL from your PostgreSQL service on Render.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-num">ISSUE 06</div>
+    <strong>❌ GitHub Pages shows 404</strong>
+    <p>Go to repository Settings → Pages → make sure Source is set to "GitHub Actions". Wait 3 minutes, then try again.</p>
+  </div>
+
+  <hr/>
+  <p style="text-align:center;color:var(--dim);font-size:.85rem">
+    Built for <strong style="color:#fff">Dan Joseph</strong> — BCA Student · Modern Web Dev Workflow Guide<br/>
+    Questions? Ask your HOD or revisit this guide anytime!
+  </p>
+
+</div>
+</body>
+</html>
