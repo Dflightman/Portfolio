@@ -18,9 +18,9 @@ app.use(express.json());
 // Replace YOUR_USERNAME with your actual GitHub username
 app.use(cors({
   origin: [
-    "https://Dflightman.github.io",
-    "http://localhost:5500",    // VS Code Live Server
-    "http://127.0.0.1:5500",   // VS Code Live Server alternate
+    "https://dflightman.github.io", // FIXED (lowercase)
+    "http://localhost:5500",
+    "http://127.0.0.1:5500",
     "http://localhost:3000",
   ],
   methods: ["GET", "POST"],
